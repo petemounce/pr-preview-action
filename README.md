@@ -236,6 +236,14 @@ the `with` parameter.
 
   Default value: `auto`
 
+- **(Advanced)** `pin-github-pages-deploy-action` and `pin-sticky-pull-request-comment`:
+  Pin the versions of the implementation-details actions. Useful if you are in an
+  environment that wants to constrain third-party remote-code tightly due to
+  supply-chain security requirements.
+
+  - You can use any [valid version specifier](https://docs.github.com/en/actions/creating-actions/about-custom-actions#using-tags-for-release-management), and they default to their
+    latest major versions.
+
 ## Outputs
 
 - `deployment-url`: the URL at which the preview has been deployed.
@@ -269,6 +277,8 @@ jobs:
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
+          pin-github-pages-deploy-action: v4
+          pin-sticky-pull-request-comment: v2
 ```
 
 ...and an accompanying main deployment workflow:
