@@ -92,7 +92,7 @@ runs:
 
     - name: Deploy preview directory
       if: env.action == 'deploy'
-      uses: JamesIves/github-pages-deploy-action@${{ github.event.inputs.pin-github-pages-deploy-action }}
+      uses: JamesIves/github-pages-deploy-action@366c53318756d10eda596fcf76a861964121200f
       with:
         branch: ${{ inputs.preview-branch }}
         folder: ${{ inputs.source-dir }}
@@ -107,7 +107,7 @@ runs:
 
     - name: Leave a comment after deployment
       if: env.action == 'deploy' && env.deployment_status == 'success'
-      uses: marocchino/sticky-pull-request-comment@${{ github.event.inputs.pin-sticky-pull-request-comment }}
+      uses: marocchino/sticky-pull-request-comment@e3c0353c9ad3f0cad0fbab901e5bcd7d04c6e97b
       with:
         header: pr-preview
         message: "\
@@ -128,7 +128,7 @@ runs:
 
     - name: Remove preview directory
       if: env.action == 'remove'
-      uses: JamesIves/github-pages-deploy-action@${{ github.event.inputs.pin-github-pages-deploy-action }}
+      uses: JamesIves/github-pages-deploy-action@366c53318756d10eda596fcf76a861964121200f
       with:
         branch: ${{ inputs.preview-branch }}
         folder: ${{ env.emptydir }}
@@ -138,7 +138,7 @@ runs:
 
     - name: Leave a comment after removal
       if: env.action == 'remove' && env.deployment_status == 'success'
-      uses: marocchino/sticky-pull-request-comment@${{ github.event.inputs.pin-sticky-pull-request-comment }}
+      uses: marocchino/sticky-pull-request-comment@e3c0353c9ad3f0cad0fbab901e5bcd7d04c6e97b
       with:
         header: pr-preview
         message: "\
