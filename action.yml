@@ -92,7 +92,7 @@ runs:
 
     - name: Deploy preview directory
       if: env.action == 'deploy'
-      uses: JamesIves/github-pages-deploy-action@366c53318756d10eda596fcf76a861964121200f
+      uses: JamesIves/github-pages-deploy-action@13046b614c663b56cba4dda3f30b9736a748b80d
       with:
         branch: ${{ inputs.preview-branch }}
         folder: ${{ inputs.source-dir }}
@@ -128,7 +128,7 @@ runs:
 
     - name: Remove preview directory
       if: env.action == 'remove'
-      uses: JamesIves/github-pages-deploy-action@366c53318756d10eda596fcf76a861964121200f
+      uses: JamesIves/github-pages-deploy-action@13046b614c663b56cba4dda3f30b9736a748b80d
       with:
         branch: ${{ inputs.preview-branch }}
         folder: ${{ env.emptydir }}
