@@ -22,12 +22,11 @@ if [ -z "$github_repository" ] || [ -z "$git_ref" ]; then
 fi
 
 echo "Cloning repository $github_repository at ref $git_ref"
-pwd
-ls -al
+
 git clone --bare "https://github.com/$github_repository" bare_pr_preview
-ls -al
+
 cd bare_pr_preview || exit 1
-pwd
+
 git checkout "${git_ref}"
 
 action_version=$(git describe --tags --match "v*.*.*" \
