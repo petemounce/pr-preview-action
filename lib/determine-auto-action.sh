@@ -10,7 +10,11 @@ case $GITHUB_EVENT_NAME in
     exit 0
     ;;
 esac
-
+if ! command -v jq; then
+  curl --location https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 --output ./jq
+  chmod +x ./jq
+  export PATH="$(pwd):${PATH}"
+fi
 event_type=$(jq -r ".action" "$GITHUB_EVENT_PATH")
 echo "event_type is $event_type"
 
